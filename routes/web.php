@@ -53,3 +53,16 @@ Route::get('request', [PageController::class, 'requestdata'] );
 // Route::post('users/{id}', function ($id) {});
 // Route::put('users/{id}', function ($id) {});
 // Route::delete('users/{id}', function ($id) {});
+
+Route::get('test', function () {
+    return view('coba');
+});
+
+Route::get('template', function () {
+    return view('template');
+});
+
+Route::get('tabeldata', function () {
+    $data = ['meja', 'kursi', 'pensil', 'pulpen', 'lampu'];
+    return view('table', compact('data'));
+});
