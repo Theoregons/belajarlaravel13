@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -66,3 +67,9 @@ Route::get('tabeldata', function () {
     $data = ['meja', 'kursi', 'pensil', 'pulpen', 'lampu'];
     return view('table', compact('data'));
 });
+
+// Route::get('siswa', [SiswaController::class, 'index']);
+// Route::get('tambahsiswa', [SiswaController::class, 'create']);
+// Route::get('tambahsiswa', [SiswaController::class, 'create']);
+
+Route::resource('siswa', SiswaController::class);
