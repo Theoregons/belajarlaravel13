@@ -4,6 +4,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +73,8 @@ Route::get('tabeldata', function () {
 // Route::get('tambahsiswa', [SiswaController::class, 'create']);
 // Route::get('tambahsiswa', [SiswaController::class, 'create']);
 
-Route::resource('siswa', SiswaController::class);
+Route::resource('siswa', SiswaController::class)->middleware(['auth', 'admin']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

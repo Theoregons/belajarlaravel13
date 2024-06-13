@@ -18,6 +18,14 @@
             <input type="text" name="alamat" class="form-control  @error('alamat') is-invalid @enderror"
                 id="exampleFormControlInput1" value="{{ $data->alamat }}">
         </div>
+        <div class="mb-3">
+            <label class="form-label">Sekolah</label>
+            <select  class="custom-select"  name="sekolah_id">
+                @foreach ($sekolah as $item)
+                    <option value="{{ $item->id }}" @selected($data->sekolah_id == $item->id)>{{ $item->nama_sekolah }}</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Simpan Data</button>
     </form>
 @endsection
