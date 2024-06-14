@@ -66,13 +66,16 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $validator = $request->validate([
             'nis' => 'required|integer',
             'nama' => 'required',
             'alamat' => 'required|string',
             'sekolah_id' => 'required|',
         ]);
-        Siswa::find($id)->update($validator);
+        $data = Siswa::find($id);
+        $data->update($validator);
+
         return redirect('siswa')->with('success', 'Data berhasil diubah!');
     }
 
